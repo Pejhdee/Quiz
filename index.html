@@ -1,28 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <div class="english-btn"></div>
+    <div class="math-btn"></div>
+    <div class="geography-btn"></div>
 
-    <div class="topics">
-        <div class="button_english" data-topic="english">АНГЛІЙСЬКА</div>
-        <div class="button_math" data-topic="math">МАТЕМАТИКА</div>
-        <div class="button_geography" data-topic="geography">ГЕОГРАФІЯ</div>
+<div class="quiz" style="display:none">
+    <div class="question"></div>
+    <div class="answers">
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
     </div>
+</div>
 
-    <div class="button_start">START</div>
-
-    <div class="quiz" style="display:none">
-        <div class="question"></div>
-        <div class="answers">
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button class="answer"></button>
-        </div>
-    </div>
-
-    <button class="button_restart" style="display:none">RESTART</button>
+<button class="button-restart" style="display:none">RESTART</button>
 
 </body>
 </html>
