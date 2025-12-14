@@ -84,7 +84,7 @@ body {
     left: 1261px;
     top: 356px;
     background: #006AFF;
-    background-image: url("image/Math.png");
+    background-image: url("Math.png");
     background-size: cover;
     background-position: center;
     border: 1px solid #000000;
@@ -104,7 +104,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("image/English.png");
+    background-image: url("English.png");
     background-size: cover;
     background-position: center;
     box-shadow: 2px 2px 5px 2px #b6b6b6;
@@ -141,7 +141,7 @@ body {
     left: 1261px;
     top: 356px;
     background: #006AFF;
-    background-image: url("image/Math.png");
+    background-image: url("Math.png");
     background-size: cover;
     background-position: center;
     border: 1px solid #000000;
@@ -260,7 +260,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("image/geography.png");
+    background-image: url("geography.png");
     background-size: cover;
     background-position: center;
     box-shadow: 2px 2px 5px 2px #b6b6b6;
@@ -268,3 +268,4 @@ body {
     transform: scale(1.05) rotate(5deg);
     transition-duration: 0.2s;
 }
+
