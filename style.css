@@ -256,7 +256,7 @@ body {
     width: 268px;
     height: 311px;
     left: 790px;
-    top: 756px;
+    top: 356px;
     background: #00ff11;
     background-image: url("Math.png");
     background-size: cover;
@@ -274,5 +274,6 @@ body {
     transform: scale(1.05) rotate(5deg);
     transition-duration: 0.2s;
 }
+
 
 
