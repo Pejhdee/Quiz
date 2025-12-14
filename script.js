@@ -9,11 +9,6 @@ let correct_answers = 0
 
 button_start.addEventListener('click', function(){
     button_start.style.display = 'none'
-    h_3.style.display = 'none'
-    h_4.style.display = 'none'
-    cir5.style.display = 'none'
-    cir6.style.display = 'none'
-    cir7.style.display = 'none'
     quiz.style.display = 'flex'
     questions[query_counter].display()
 })
@@ -123,14 +118,6 @@ function showResult(){
 function QuizRestart(){
     query_counter = 0
     correct_answers = 0
-
-    cir1.style.display = 'flex'
-    cir2.style.display = 'flex'
-    cir3.style.display = 'flex'
-    cir4.style.display = 'flex'
-    cir5.style.display = 'none'
-    cir6.style.display = 'none'
-    cir7.style.display = 'none'
     quiz.style.display = 'flex'
     quiz.innerHTML = `
         <div class="question">20 + 50</div>
@@ -164,5 +151,6 @@ function QuizRestart(){
 }
 question[query_counter].display()
 }
+
 
 
