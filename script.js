@@ -1,156 +1,150 @@
-let button_start = document.querySelector('.button-start')
 let question = document.querySelector('.question')
 let answers = document.querySelectorAll('.answer')
-let math_btn = document.querySelector('.math-btn')
-let english_btn = document.querySelector('.english-btn')
 
+let english_btn = document.querySelector('.english-btn')
+let math_btn = document.querySelector('.math-btn')
+let geography_btn = document.querySelector('.geography-btn')
+
+let quiz = document.querySelector('.quiz')
+let restart_btn = document.querySelector('.button-restart')
+let button_start = document.querySelector('.button-start')
+
+let questions = []
 let query_counter = 0
 let correct_answers = 0
 
-button_start.addEventListener('click', function(){
-    button_start.style.display = 'none'
-    quiz.style.display = 'flex'
-    questions[query_counter].display()
-})
 
 function randint(min, max){
     return Math.round(Math.random() * (max - min) + min)
 }
 
-let actions = ['+', '-', '/', '*']
 
 class Question {
-    constructor(question, wrong_answer1, right_answer, wrong_answer2, wrong_answer3){
+    constructor(question, right_answer, ...wrong_answers){
         this.question = question
         this.right_answer = right_answer
-        this.questions = [
-            wrong_answer1,
-            right_answer,
-            wrong_answer2,
-            wrong_answer3
-        ]
+        this.answers = [right_answer, ...wrong_answers]
     }
 
-    shuffle(my_array) {
-        for (let i = my_array.length - 1; i > 0; i--) {
+    shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1))
-            ;[my_array[i], my_array[j]] = [my_array[j], my_array[i]]
+            ;[arr[i], arr[j]] = [arr[j], arr[i]]
         }
-        return my_array
+        return arr
     }
 
     display(){
-        this.questions = this.shuffle(this.questions)
+        this.shuffle(this.answers)
         question.innerHTML = this.question
+
         for (let i = 0; i < answers.length; i++){
-            answers[i].innerHTML = this.questions[i]
+            answers[i].innerHTML = this.answers[i]
         }
     }
 }
 
-let a = randint(1, 30)
-let b = randint(1, 30)
-let c = randint(1, 30)
-let d = randint(1, 30)
 
-let mathquestions = [
-    new Question('20 + 50', 30, 70, 17, 48, 100),
-    new Question('√144', 7, 12, 17, 30, 13),
-    new Question('15 * 2', 60, 30, 45, 17, 52),
-    new Question('√81', 3, 9, 5, 8, 3),
-    new Question('60 - 30', 2, 30, 17, 48, 5),
-    new Question(`${a} + ${b}`,
-        randint((a + b) - 15, (a + b) - 1),
-        a + b,
-        randint((a + b) - 15, (a + b) - 1),
-        randint((a + b) + 1, (a + b) + 15),
-        randint((a + b) + 1, (a + b) + 15)),
-    new Question(`${c} + ${d}`,
-        randint((c + d) - 15, (c + d) - 1),
-        c + d,
-        randint((c + d) - 15, (c + d) - 1),
-        randint((c + d) + 1, (c + d) + 15),
-        randint((c + d) + 1, (c + d) + 15)),
+
+let a = randint(5, 40)
+let b = randint(5, 40)
+
+let englishquestions = [
+    new Question("Dog — це:", "собака", "кіт", "риба", "птах", "олень"),
+    new Question("Blue — це:", "синій", "червоний", "зелений", "жовтий", "білий"),
+    new Question("Sun — це:", "сонце", "місяць", "зірка", "земля", "вода")
 ]
 
-for(let i = 0; i < answers.length; i++){
-    answers[i].addEventListener('click', function(){
-        if(answers[i].innerHTML == questions[query_counter].right_answer){
-            console.log('Вірно')
-            correct_answers++
-        } else {
-            console.log('Невірно')
-        }
+let mathquestions = [
+    new Question("20 + 50", 70, 30, 17, 48, 100),
+    new Question("√144", 12, 7, 17, 30, 13),
+    new Question(`${a} + ${b}`, a + b, a + b - 3, a + b + 5, a + b - 7, a + b + 2)
+]
 
-        query_counter++
-        if (query_counter < questions.length){
-            questions[query_counter].display()
-        } else {
-            showResult()
-        }
-    })
-}
+let geographyquestions = [
+    new Question("Столиця України:", "Київ", "Львів", "Харків", "Одеса", "Дніпро"),
+    new Question("Найбільший океан:", "Тихий", "Атлантичний", "Індійський", "Північний", "Південний"),
+    new Question("Найбільший континент:", "Азія", "Європа", "Африка", "Антарктида", "Австралія")
+]
 
-function showResult(){
-    cir1.style.display = 'none';
-    cir2.style.display = 'none';
-    cir3.style.display = 'none';
-    cir4.style.display = 'none';
-    cir5.style.display = 'flex';
-    cir6.style.display = 'flex';
-    cir7.style.display = 'flex';
-    cir5.style.backgroundColor = '#FF0062';
-    cir6.style.backgroundColor = '#FF0062';
-    cir7.style.backgroundColor = '#FF0062';
-    quiz.innerHTML = `
-        <div style="text-align: center;">
-            <h1 style="width: 520px;">Квіз завершений</h1>
-            <h2>Ви відповіли на запитання: ${correct_answers} з ${questions.length}</h2>
-            <div class="button-restart">Грати знову</div>
-        </div>
-    `
-    let restart_quiz_button = document.querySelector('.button-restart')
-    restart_quiz_button.addEventListener('click', function(){
-        QuizRestart()
-    })
-}
 
-function QuizRestart(){
+english_btn.onclick = () => { questions = englishquestions; startQuiz() }
+math_btn.onclick = () => { questions = mathquestions; startQuiz() }
+geography_btn.onclick = () => { questions = geographyquestions; startQuiz() }
+
+
+
+function startQuiz(){
+    english_btn.style.display = 'none'
+    math_btn.style.display = 'none'
+    geography_btn.style.display = 'none'
+
+    quiz.style.display = 'flex'
     query_counter = 0
     correct_answers = 0
-    quiz.style.display = 'flex'
-    quiz.innerHTML = `
-        <div class="question">20 + 50</div>
-        <div class="answers">
-            <div class="answer">30</div>
-            <div class="answer">70</div>
-            <div class="answer">17</div>
-            <div class="answer">48</div>
-            <div class="answer">100</div>
-        </div>   
-    `
-    question = document.querySelector('.question')
-    answers = document.querySelectorAll('.answer')
 
-    for(let i = 0; i < answers.length; i++){
-    answers[i].addEventListener('click', function(){
-        if(answers[i].innerHTML == questions[query_counter].right_answer){
-            console.log('Вірно')
+    questions[query_counter].display()
+}
+
+answers.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        if (btn.innerHTML == questions[query_counter].right_answer) {
             correct_answers++
-        } else {
-            console.log('Невірно')
         }
 
         query_counter++
+
         if (query_counter < questions.length){
             questions[query_counter].display()
         } else {
             showResult()
         }
     })
+})
+
+function showResult(){
+    quiz.innerHTML = `
+        <h1>Квіз завершено!</h1>
+        <h2>Правильних відповідей: ${correct_answers} з ${questions.length}</h2>
+    `
+    restart_btn.style.display = 'block'
 }
-question[query_counter].display()
-}
 
 
+restart_btn.addEventListener('click', function() {
+    restart_btn.style.display = 'none'
+    quiz.style.display = 'none'
 
+    english_btn.style.display = 'flex'
+    math_btn.style.display = 'flex'
+    geography_btn.style.display = 'flex'
+
+    quiz.innerHTML = `<div class="question"></div>
+        <div class="answers">
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        </div>`
+        question = document.querySelector('.question')
+        answers = document.querySelectorAll('.answer')
+
+        for (let btn of answers){
+            btn.addEventListener('click', function() {
+
+            if (btn.innerHTML == questions[query_counter].right_answer) {
+            correct_answers++
+        }
+
+        query_counter++
+
+        if (query_counter < questions.length){
+            questions[query_counter].display()
+        } else {
+            showResult()
+        }
+            })
+        }
+})
