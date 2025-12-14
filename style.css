@@ -258,9 +258,6 @@ body {
     left: 790px;
     top: 356px;
     background: #00ff11;
-    background-image: url("Math.png");
-    background-size: cover;
-    background-position: center;
     border: 1px solid #000000;
     border-radius: 47px;
     display: flex;
