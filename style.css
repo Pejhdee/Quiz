@@ -1,6 +1,53 @@
 body {
     overflow: hidden;
 }
+.button-restart {
+    background-color: #FF0062;
+    border: 2px solid #FF0062;
+    position: absolute;
+    width: 400px;
+    height: 375px;
+    left: 537px;
+    top: 429px;
+    position: absolute;
+    text-align: center;
+    width: 216px;
+    height: 90px;
+    left: 848px;
+    top: 505px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 87px;
+    color: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px 2px #b6b6b6;
+    transition-property: transform, box-shadow;
+    transform: none;
+    transition-duration: 0.2s;
+}
+.geography-btn {
+    box-sizing: border-box;
+    position: absolute;
+    width: 268px;
+    height: 311px;
+    left: 790px;
+    top: 756px;
+    background: #00ff11;
+    border: 1px solid #000000;
+    border-radius: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("image/geography.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 2px 2px 5px 2px #b6b6b6;
+    transition-property: transform, box-shadow;
+    transform: none;
+    transition-duration: 0.2s;
+}
 
 .english-btn{
     box-sizing: border-box;
@@ -118,6 +165,32 @@ body {
     transform: scale(1.05) rotate(5deg);
     transition-duration: 0.2s;
 }
+.button-restart:hover{
+    background-color: #FF0062;
+    border: 2px solid #FF0062;
+    position: absolute;
+    width: 400px;
+    height: 375px;
+    left: 537px;
+    top: 429px;
+    position: absolute;
+    text-align: center;
+    width: 216px;
+    height: 90px;
+    left: 848px;
+    top: 505px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 57px;
+    color: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px 2px #b6b6b6;
+    transition-property: transform, box-shadow;
+    transform: scale(1.05) rotate(5deg);
+    transition-duration: 0.2s;
+}
 .quiz {
     display: none;
     flex-direction: column;
@@ -137,10 +210,10 @@ body {
     padding: 6px 10px;
     margin: 10px;
     font-size: 40px;
-    width: 81.02px;
+    width: 222.02px;
     height: 88px;
     text-align: center;
-    line-height: 90px;
+    line-height: 70px;
     color: white;
     box-shadow: 2px 2px 5px 2px #b6b6b6;
     transition-property: transform, box-shadow;
@@ -151,4 +224,44 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: 50px;
+}
+.answer:hover {
+    font-family: 'Jost';
+    background-color: #0077FF;
+    border: 2px solid #0077FF;
+    border-radius: 30px;
+    padding: 6px 10px;
+    margin: 10px;
+    font-size: 40px;
+    width: 222.02px;
+    height: 88px;
+    text-align: center;
+    line-height: 70px;
+    color: white;
+    box-shadow: 2px 2px 5px 2px #b6b6b6;
+    transition-property: transform, box-shadow;
+    transform: scale(1.05) rotate(5deg);
+    transition-duration: 0.2s;
+}
+.geography-btn:hover {
+    box-sizing: border-box;
+    position: absolute;
+    width: 268px;
+    height: 311px;
+    left: 790px;
+    top: 756px;
+    background: #00ff11;
+    border: 1px solid #000000;
+    border-radius: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("image/geography.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 2px 2px 5px 2px #b6b6b6;
+    transition-property: transform, box-shadow;
+    transform: scale(1.05) rotate(5deg);
+    transition-duration: 0.2s;
 }
